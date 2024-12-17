@@ -1,0 +1,4 @@
+apiVersion: v2
+name: test-react-app
+description: A Helm chart for deploying a test react app
+version: 0.1.0
