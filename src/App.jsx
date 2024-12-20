@@ -32,11 +32,13 @@ function App() {
 
   return (
     <div className="app-container">
-      <h1>Kogito BPMN Editor</h1>
-      <input type="file" accept=".bpmn, .xml" onChange={handleFileUpload} />
-      <button onClick={handleExport} style={{ marginTop: "10px" }}>
-        Export Diagram
-      </button>
+      <div className="controls">
+        <h1>Kogito BPMN Editor</h1>
+        <input type="file" accept=".bpmn, .xml" onChange={handleFileUpload} />
+        <button onClick={handleExport} style={{ marginTop: "10px" }}>
+          Export Diagram
+        </button>
+      </div>
       <div className="editor-container">
         <BpmnEditorComponent editorRef={bpmnEditorRef} />
       </div>
