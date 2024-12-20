@@ -1,6 +1,6 @@
-import { useRef } from 'react';
-import './App.css';
-import BpmnEditorComponent from './components/BpmnEditor';
+import { useRef } from "react";
+import "./App.css";
+import BpmnEditorComponent from "./components/BpmnEditor";
 
 function App() {
   const bpmnEditorRef = useRef(null);
@@ -11,7 +11,7 @@ function App() {
       const reader = new FileReader();
       reader.onload = (e) => {
         const content = e.target.result;
-        bpmnEditorRef.current?.setContent('uploaded.bpmn', content);
+        bpmnEditorRef.current?.setContent("uploaded.bpmn", content);
       };
       reader.readAsText(file);
     }
@@ -20,11 +20,11 @@ function App() {
   const handleExport = async () => {
     if (bpmnEditorRef.current) {
       const content = await bpmnEditorRef.current.getContent();
-      const blob = new Blob([content], { type: 'application/xml' });
+      const blob = new Blob([content], { type: "application/xml" });
       const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
+      const a = document.createElement("a");
       a.href = url;
-      a.download = 'diagram.bpmn';
+      a.download = "diagram.bpmn";
       a.click();
       URL.revokeObjectURL(url);
     }
@@ -34,7 +34,7 @@ function App() {
     <div className="app-container">
       <h1>Kogito BPMN Editor</h1>
       <input type="file" accept=".bpmn, .xml" onChange={handleFileUpload} />
-      <button onClick={handleExport} style={{ marginTop: '10px' }}>
+      <button onClick={handleExport} style={{ marginTop: "10px" }}>
         Export Diagram
       </button>
       <div className="editor-container">
