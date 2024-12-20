@@ -92,3 +92,7 @@ jobs:
             --namespace ${{ secrets.OPENSHIFT_TEST_NAMESPACE }} \
             --set image.repository=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }} \
             --set image.tag=${{ needs.build_and_push.outputs.image_tag }}
+
+      - name: Trigger OpenShift Rollout
+        run: |
+          oc rollout restart deployment/test-react-app
