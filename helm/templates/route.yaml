@@ -5,6 +5,7 @@ metadata:
   labels:
     app.kubernetes.io/name: test-react-app
 spec:
+  host: bpmn-editor.apps.silver.devops.gov.bc.ca
   to:
     kind: Service
     name: test-react-app
